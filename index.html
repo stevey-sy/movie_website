@@ -9,21 +9,19 @@
 
     <script type="text/babel">
         const root = document.getElementById("root");
-        let counter = 0;
-        function counterUp() {
-            counter = counter +1;
-            console.log(counter);
-            render();
-        }
-        function render() {
-            ReactDOM.render(<Container/>, root);
-        }
-        const Container = ()=>(
-            <div>
-                <h3>Total clicks: {counter}</h3>
-                <button onClick={counterUp}>Click me</button>
-            </div>
-        );
-        render();
+        function App() {
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                setCounter(counter + 1);
+            };
+    
+            return (  
+                <div>
+                    <h3>Total clicks: {counter}</h3>
+                    <button onClick={onClick}>Click me</button>
+                </div>
+            );
+        } 
+        ReactDOM.render(<App/>, root);
     </script>
 </html>
